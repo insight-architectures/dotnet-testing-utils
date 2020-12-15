@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <RootNamespace>InsightArchitectures.[NAMESPACE]</RootNamespace>
+    <RootNamespace>InsightArchitectures.Testing</RootNamespace>
     <LangVersion>9.0</LangVersion>
   </PropertyGroup>
 
@@ -12,7 +12,7 @@
   <PropertyGroup>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/insight-architectures/[REPOSITORY]</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/insight-architectures/dotnet-testing-utils</PackageProjectUrl>
     <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 

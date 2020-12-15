@@ -12,7 +12,7 @@ Setup<BuildState>(_ =>
     {
         Paths = new BuildPaths
         {
-            SolutionFile = MakeAbsolute(File("./[SOLUTION_FILE_NAME].sln"))
+            SolutionFile = MakeAbsolute(File("./DotNetTestingUtils.sln"))
         }
     };
 
