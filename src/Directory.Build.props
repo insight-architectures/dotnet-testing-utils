@@ -3,6 +3,7 @@
     <RootNamespace>InsightArchitectures.Testing</RootNamespace>
     <AssemblyName>$(RootNamespace).$(MSBuildProjectName)</AssemblyName>
     <LangVersion>9.0</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup>
