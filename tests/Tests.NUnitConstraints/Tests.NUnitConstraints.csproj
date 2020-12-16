@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\NUnit\NUnit.Helpers\NUnit.Helpers.csproj" />
+    <ProjectReference Include="..\..\src\NUnitConstraints\NUnitConstraints.csproj" />
   </ItemGroup>
 
 </Project>

@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Moq\Moq.NUnitMatchers\Moq.NUnitMatchers.csproj" />
+    <ProjectReference Include="..\..\src\MoqMatchers.NUnit\MoqMatchers.NUnit.csproj" />
   </ItemGroup>
 
 </Project>
