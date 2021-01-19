@@ -35,4 +35,30 @@ namespace InsightArchitectures.Testing
             throw new NotSupportedException();
         }
     }
+
+    /// <summary>
+    /// An implementation of <see cref="IConstraintBuilder"/>.
+    /// </summary>
+    /// <typeparam name="T">The type of the test subject used to select the property to test.</typeparam>
+    public class PropertySelectorConstraintBuilder<T> : IConstraintBuilder
+    {
+        private readonly Func<T, object> _valueSelector;
+
+        /// <summary>
+        /// Creates a <see cref="PropertySelectorConstraintBuilder{T}" /> targeting a specific property of <typeparamref name="T"/>.
+        /// </summary>
+        /// <param name="valueSelector"></param>
+        public PropertySelectorConstraintBuilder(Func<T, object> valueSelector)
+        {
+            _valueSelector = valueSelector ?? throw new ArgumentNullException(nameof(valueSelector));
+        }
+
+        /// <inheritdoc />
+        public IConstraint That(IConstraint constraint)
+        {
+            _ = constraint ?? throw new ArgumentNullException(nameof(constraint));
+
+            return new PropertyConstraint<T>(_valueSelector, constraint);
+        }
+    }
 }
