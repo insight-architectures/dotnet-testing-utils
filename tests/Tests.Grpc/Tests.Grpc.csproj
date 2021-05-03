@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>net5.0;netcoreapp3.1</TargetFrameworks>
+
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -12,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\MoqMatchers.NUnit\MoqMatchers.NUnit.csproj" />
+    <ProjectReference Include="..\..\src\Grpc\Grpc.csproj" />
   </ItemGroup>
 
 </Project>

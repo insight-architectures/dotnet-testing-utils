@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace InsightArchitectures.Testing
+﻿namespace InsightArchitectures.Testing
 {
     /// <summary>
     /// Helper class used to access the parameter being passed to the method.
