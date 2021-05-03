@@ -14,7 +14,7 @@ namespace Tests
         {
             Mock.Get(constraint).Setup(p => p.ApplyTo(It.IsAny<string>())).Returns((string value) => new ConstraintResult(constraint, value, true));
 
-            Mock<ISynchronousService> mock = new();
+            var mock = new Mock<ISynchronousService>();
 
             mock.Setup(p => p.Echo(It.IsAny<string>())).Returns("world");
 
@@ -30,7 +30,7 @@ namespace Tests
         {
             Mock.Get(constraint).Setup(p => p.ApplyTo(It.IsAny<string>())).Returns((string value) => new ConstraintResult(constraint, value, false));
 
-            Mock<ISynchronousService> mock = new();
+            var mock = new Mock<ISynchronousService>();
 
             mock.Setup(p => p.Echo(It.IsAny<string>())).Returns("world");
 
@@ -46,7 +46,7 @@ namespace Tests
         {
             Mock.Get(constraint).Setup(p => p.ApplyTo(It.IsAny<string>())).Returns((string value) => new ConstraintResult(constraint, value, true));
 
-            Mock<IServiceWithCompositeParameter> mock = new();
+            var mock = new Mock<IServiceWithCompositeParameter>();
 
             mock.Setup(p => p.DoSomething(It.IsAny<CompositeParameter>()));
 
@@ -64,7 +64,7 @@ namespace Tests
         {
             Mock.Get(constraint).Setup(p => p.ApplyTo(It.IsAny<string>())).Returns((string value) => new ConstraintResult(constraint, value, false));
 
-            Mock<IServiceWithCompositeParameter> mock = new();
+            var mock = new Mock<IServiceWithCompositeParameter>();
 
             mock.Setup(p => p.DoSomething(It.IsAny<CompositeParameter>()));
 
@@ -82,7 +82,7 @@ namespace Tests
         {
             Mock.Get(constraint).Setup(p => p.ApplyTo(It.IsAny<string>())).Returns((string value) => new ConstraintResult(constraint, value, true));
 
-            Mock<IServiceWithCompositeParameter> mock = new();
+            var mock = new Mock<IServiceWithCompositeParameter>();
 
             mock.Setup(p => p.DoSomething(It.IsAny<CompositeParameter>()));
 
@@ -100,7 +100,7 @@ namespace Tests
         {
             Mock.Get(constraint).Setup(p => p.ApplyTo(It.IsAny<string>())).Returns((string value) => new ConstraintResult(constraint, value, false));
 
-            Mock<IServiceWithCompositeParameter> mock = new();
+            var mock = new Mock<IServiceWithCompositeParameter>();
 
             mock.Setup(p => p.DoSomething(It.IsAny<CompositeParameter>()));
 
@@ -120,7 +120,7 @@ namespace Tests
 
             Mock.Get(constraint).Setup(p => p.Resolve()).Returns(constraint);
 
-            Mock<ISynchronousService> mock = new();
+            var mock = new Mock<ISynchronousService>();
 
             mock.Setup(p => p.Echo(It.IsAny<string>())).Returns("world");
 
@@ -138,7 +138,7 @@ namespace Tests
 
             Mock.Get(constraint).Setup(p => p.Resolve()).Returns(constraint);
 
-            Mock<ISynchronousService> mock = new();
+            var mock = new Mock<ISynchronousService>();
 
             mock.Setup(p => p.Echo(It.IsAny<string>())).Returns("world");
 
@@ -156,7 +156,7 @@ namespace Tests
 
             Mock.Get(constraint).Setup(p => p.Resolve()).Returns(constraint);
 
-            Mock<IServiceWithCompositeParameter> mock = new();
+            var mock = new Mock<IServiceWithCompositeParameter>();
 
             mock.Setup(p => p.DoSomething(It.IsAny<CompositeParameter>()));
 
@@ -176,7 +176,7 @@ namespace Tests
 
             Mock.Get(constraint).Setup(p => p.Resolve()).Returns(constraint);
 
-            Mock<IServiceWithCompositeParameter> mock = new();
+            var mock = new Mock<IServiceWithCompositeParameter>();
 
             mock.Setup(p => p.DoSomething(It.IsAny<CompositeParameter>()));
 
@@ -196,7 +196,7 @@ namespace Tests
 
             Mock.Get(constraint).Setup(p => p.Resolve()).Returns(constraint);
 
-            Mock<IServiceWithCompositeParameter> mock = new();
+            var mock = new Mock<IServiceWithCompositeParameter>();
 
             mock.Setup(p => p.DoSomething(It.IsAny<CompositeParameter>()));
 
@@ -216,7 +216,7 @@ namespace Tests
 
             Mock.Get(constraint).Setup(p => p.Resolve()).Returns(constraint);
 
-            Mock<IServiceWithCompositeParameter> mock = new();
+            var mock = new Mock<IServiceWithCompositeParameter>();
 
             mock.Setup(p => p.DoSomething(It.IsAny<CompositeParameter>()));
 
