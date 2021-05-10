@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Grpc.Core;
 
@@ -32,6 +33,15 @@ namespace InsightArchitectures.Testing
         /// <param name="responses">The set of responses to return.</param>
         /// <returns>A builder that can be customized and used to create a test call.</returns>
         public static TestCallBuilder<AsyncServerStreamingCall<TResponse>> AsyncServerStreamingCall<TResponse>(IAsyncStreamReader<TResponse> responses) => new AsyncServerStreamingTestCallBuilder<TResponse>(responses);
+
+        /// <summary>
+        /// Creates a builder for testing server streaming calls.
+        /// </summary>
+        /// <typeparam name="TResponse">Response message type for this call.</typeparam>
+        /// <param name="items">The set of responses to return.</param>
+        /// <returns>A builder that can be customized and used to create a test call.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "Disposed by the container.")]
+        public static TestCallBuilder<AsyncServerStreamingCall<TResponse>> AsyncServerStreamingCall<TResponse>(IEnumerable<TResponse> items) => new AsyncServerStreamingTestCallBuilder<TResponse>(new MockAsyncStreamReader<TResponse>(items));
 
         /// <summary>
         /// Creates a builder for testing client streaming calls.

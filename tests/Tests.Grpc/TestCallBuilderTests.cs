@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoFixture.Idioms;
 using Grpc.Core;
@@ -31,6 +32,14 @@ namespace Tests
 
         [Test, CustomAutoData]
         public void AsyncServerStreamingCall_returns_builder(IAsyncStreamReader<HelloReply> responses)
+        {
+            var call = TestCallBuilder.AsyncServerStreamingCall(responses);
+
+            Assert.That(call, Is.InstanceOf<AsyncServerStreamingTestCallBuilder<HelloReply>>());
+        }
+
+        [Test, CustomAutoData]
+        public void AsyncServerStreamingCall_returns_builder(IEnumerable<HelloReply> responses)
         {
             var call = TestCallBuilder.AsyncServerStreamingCall(responses);
 
