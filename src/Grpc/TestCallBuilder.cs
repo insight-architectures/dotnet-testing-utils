@@ -72,6 +72,17 @@ namespace InsightArchitectures.Testing
         /// <param name="responses">The set of responses to return.</param>
         /// <returns>A builder that can be customized and used to create a test call.</returns>
         public static TestCallBuilder<AsyncDuplexStreamingCall<TRequest, TResponse>> AsyncDuplexStreamingCall<TRequest, TResponse>(IClientStreamWriter<TRequest> requests, IAsyncStreamReader<TResponse> responses) => new AsyncDuplexStreamingTestCallBuilder<TRequest, TResponse>(requests, responses);
+
+        /// <summary>
+        /// Creates a builder for testing bidirectional streaming calls.
+        /// </summary>
+        /// <typeparam name="TRequest">Request message type for this call.</typeparam>
+        /// <typeparam name="TResponse">Response message type for this call.</typeparam>
+        /// <param name="requests">Request values.</param>
+        /// <param name="items">The set of items to return.</param>
+        /// <returns>A builder that can be customized and used to create a test call.</returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "Disposed by the container.")]
+        public static TestCallBuilder<AsyncDuplexStreamingCall<TRequest, TResponse>> AsyncDuplexStreamingCall<TRequest, TResponse>(IClientStreamWriter<TRequest> requests, IEnumerable<TResponse> items) => new AsyncDuplexStreamingTestCallBuilder<TRequest, TResponse>(requests, new MockAsyncStreamReader<TResponse>(items));
     }
 
     /// <summary>

@@ -69,5 +69,13 @@ namespace Tests
 
             Assert.That(call, Is.InstanceOf<AsyncDuplexStreamingTestCallBuilder<HelloRequest, HelloReply>>());
         }
+
+        [Test, CustomAutoData]
+        public void AsyncDuplexStreamingCall_returns_builder(IClientStreamWriter<HelloRequest> requests, IEnumerable<HelloReply> responses)
+        {
+            var call = TestCallBuilder.AsyncDuplexStreamingCall(requests, responses);
+
+            Assert.That(call, Is.InstanceOf<AsyncDuplexStreamingTestCallBuilder<HelloRequest, HelloReply>>());
+        }
     }
 }
