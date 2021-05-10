@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoFixture.Idioms;
 using Grpc.Core;
@@ -38,6 +39,14 @@ namespace Tests
         }
 
         [Test, CustomAutoData]
+        public void AsyncServerStreamingCall_returns_builder(IEnumerable<HelloReply> responses)
+        {
+            var call = TestCallBuilder.AsyncServerStreamingCall(responses);
+
+            Assert.That(call, Is.InstanceOf<AsyncServerStreamingTestCallBuilder<HelloReply>>());
+        }
+
+        [Test, CustomAutoData]
         public void AsyncClientStreamingCall_returns_builder(IClientStreamWriter<HelloRequest> requests, HelloReply response)
         {
             var call = TestCallBuilder.AsyncClientStreamingCall(requests, response);
@@ -55,6 +64,14 @@ namespace Tests
 
         [Test, CustomAutoData]
         public void AsyncDuplexStreamingCall_returns_builder(IClientStreamWriter<HelloRequest> requests, IAsyncStreamReader<HelloReply> responses)
+        {
+            var call = TestCallBuilder.AsyncDuplexStreamingCall(requests, responses);
+
+            Assert.That(call, Is.InstanceOf<AsyncDuplexStreamingTestCallBuilder<HelloRequest, HelloReply>>());
+        }
+
+        [Test, CustomAutoData]
+        public void AsyncDuplexStreamingCall_returns_builder(IClientStreamWriter<HelloRequest> requests, IEnumerable<HelloReply> responses)
         {
             var call = TestCallBuilder.AsyncDuplexStreamingCall(requests, responses);
 
